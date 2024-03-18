@@ -7,6 +7,8 @@ const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
+const videoId = document.getElementById('video');
+
 // Build our functions
 function togglePlay() {
    const method = video.paused ? 'play' : 'pause';
@@ -56,3 +58,10 @@ progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => (mousedown = true));
 progress.addEventListener('mouseup', () => (mousedown = false));
+
+// Play and pause through keyboard | "Space Key"
+document.addEventListener('keydown', (e) => {
+   if (e.code === 'Space') {
+      togglePlay();
+   }
+});
